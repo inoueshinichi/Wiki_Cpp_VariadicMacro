@@ -35,4 +35,4 @@ https://docs.microsoft.com/ja-jp/cpp/build/reference/zc-preprocessor?view=msvc-1
 
 
 3.可変長引数マクロの数を数える方法</br> 
-~執筆中~</br>
+執筆中</br>
