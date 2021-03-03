@@ -5,7 +5,7 @@ C++における可変引数マクロのテクニック</br>
 マクロ記述内で一旦可変長引数パラメータパックを展開する方法</br>
 MSVCの場合、可変長引数パラメータパックがその他のマクロ記述内部でシングルトークンとして扱われるので、</br>
 展開が必要な場合は、以下のマクロを定義して指定のマクロ記述内で使用する.</br>
-#define EXPAND_ARGS(...) __VA__ARGS__ // この記述を展開したいマクロ記述内で使用する</br>
+#define EXPAND_ARGS(...) ¥__VA__ARGS__ // この記述を展開したいマクロ記述内で使用する</br>
 最新のMSVCの場合、アンパックされるみたい.</br>
 https://docs.microsoft.com/ja-jp/cpp/preprocessor/preprocessor-experimental-overview?view=msvc-160</br>
 
