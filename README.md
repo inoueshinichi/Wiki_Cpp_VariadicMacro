@@ -3,6 +3,7 @@ C++における可変引数マクロのテクニック
 
 1.マクロ記述内における可変長パラメータパック__VA_ARGS__の展開有無  
 https://docs.microsoft.com/ja-jp/cpp/preprocessor/preprocessor-experimental-overview?view=msvc-160  
+
     @MSVC 従来型のプリプロセッサ(/Zc:preprocessor-)  
         可変長パラメータパックは展開されない.  
         マクロ記述内部では__VA_ARGS__がシングルトークンとして扱われるので、  
@@ -12,10 +13,18 @@ https://docs.microsoft.com/ja-jp/cpp/preprocessor/preprocessor-experimental-over
         
     @MSVC 標準準拠モードのプリプロセッサ(/Zc:preprocessor)  
         GNU系の標準プリプロセッサの動作に習って, __VA_ARGS__は展開される.  
-        #define LOG(fmt, ...) std::printf(fmt, __VA_ARGS__);  
+        #define LOG(fmt, ...) std::printf(fmt, ##__VA_ARGS__);  
         
 
-2. 
+2. マクロ記述内の `, __VA_ARGS__`における`,`の取扱い  
+
+    @GNU　
+    `, ##__VA_ARGS__`とすることで、GNU拡張によって, __VA_ARGS__が空の場合, 直前のカンマ`,`は削除される.  
+    #define LOG(fmt, ...) std::printf(fmt, ##__VA_ARGS__);  
+    ただし, コンパイラオプションの--pedantic-errorを設定した場合、GNU拡張が禁止されるので注意すること.  
+    
+    
+    
 
 
 2.GCCとMSVCにおける\__VA__ARGS__の挙動の違い</br>
