@@ -1,12 +1,22 @@
 # VariadicMacro
-C++における可変引数マクロのテクニック</br>
+C++における可変引数マクロのテクニック  
 
-1.マクロ記述内で一旦可変長引数パラメータパックを展開する方法@MSVC</br>
-MSVCの場合、可変長引数パラメータパックがその他のマクロ記述内部でシングルトークンとして扱われるので、</br>
-展開が必要な場合は、以下のマクロを定義して指定のマクロ記述内で使用する.</br>
-`#define EXPAND_ARGS(...) __VA__ARGS__ // この記述を展開したいマクロ記述内で使用する`</br>
-最新のMSVCの場合、アンパックされる.</br>
-https://docs.microsoft.com/ja-jp/cpp/preprocessor/preprocessor-experimental-overview?view=msvc-160</br>
+1.マクロ記述内における可変長パラメータパック__VA_ARGS__の展開有無  
+https://docs.microsoft.com/ja-jp/cpp/preprocessor/preprocessor-experimental-overview?view=msvc-160  
+    @MSVC 従来型のプリプロセッサ(/Zc:preprocessor-)  
+        可変長パラメータパックは展開されない.  
+        マクロ記述内部では__VA_ARGS__がシングルトークンとして扱われるので、  
+        展開が必要な場合は, 展開用マクロを追加して強制的に展開動作を行わせる.  
+        #define EXPAND_ARGS(...) __VA_ARGS__ // この記述を展開したいマクロ記述内で使用する.  
+        #define LOG(fmt, ...) std::printf(fmt, EXPAND_ARGS(__VA_ARGS__));  
+        
+    @MSVC 標準準拠モードのプリプロセッサ(/Zc:preprocessor)  
+        GNU系の標準プリプロセッサの動作に習って, __VA_ARGS__は展開される.  
+        #define LOG(fmt, ...) std::printf(fmt, __VA_ARGS__);  
+        
+
+2. 
+
 
 2.GCCとMSVCにおける\__VA__ARGS__の挙動の違い</br>
 通常、可変長マクロ `#define LOG(fmt, ...) printf(fmt, __VA_ARGS__)`を作ると、</br>
