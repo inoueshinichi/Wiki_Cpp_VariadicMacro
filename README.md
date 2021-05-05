@@ -6,7 +6,7 @@ https://docs.microsoft.com/ja-jp/cpp/preprocessor/preprocessor-experimental-over
 
   @MSVC 従来型のプリプロセッサ(/Zc:preprocessor-)  
       可変長パラメータパックは展開されない.  
-      マクロ記述内部では'/__VA_ARGS__'がシングルトークンとして扱われるので、  
+      マクロ記述内部では'\__VA_ARGS__'がシングルトークンとして扱われるので、  
       展開が必要な場合は, 展開用マクロを追加して強制的に展開動作を行わせる.  
       '#define EXPAND_ARGS(...) __VA_ARGS__' // この記述を展開したいマクロ記述内で使用する.  
       '#define LOG(fmt, ...) std::printf(fmt, EXPAND_ARGS(__VA_ARGS__));'  
