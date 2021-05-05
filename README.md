@@ -4,7 +4,7 @@ C++における可変引数マクロのテクニック
 1.マクロ記述内における可変長パラメータパック`__VA_ARGS__`の展開有無  
 https://docs.microsoft.com/ja-jp/cpp/preprocessor/preprocessor-experimental-overview?view=msvc-160  
 
-  -@MSVC 従来型のプリプロセッサ(/Zc:preprocessor-)  
+  - @MSVC 従来型のプリプロセッサ(/Zc:preprocessor-)  
       可変長パラメータパックは展開されない.  
       マクロ記述内部では`__VA_ARGS__`がシングルトークンとして扱われるので、  
       展開が必要な場合は, 展開用マクロを追加して強制的に展開動作を行わせる.  
