@@ -49,7 +49,7 @@ https://docs.microsoft.com/ja-jp/cpp/preprocessor/preprocessor-experimental-over
 https://docs.microsoft.com/ja-jp/cpp/preprocessor/preprocessor-experimental-overview?view=msvc-160  
 
   - 従来型プリプロセッサでは、マクロ記述内のマクロは自動的に展開される
-    ```c++:macro.cpp 
+    ```cpp:macro.cpp 
     #define CAT(a, b) a##b
     #define ECHO(...) __VA_ARGS__
     #define IMPL1(prefix, value) do_thing_one(prefix, value)
