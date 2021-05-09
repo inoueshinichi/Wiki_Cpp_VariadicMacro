@@ -48,7 +48,7 @@ https://docs.microsoft.com/ja-jp/cpp/preprocessor/preprocessor-experimental-over
 4. MSVCにおけるマクロ記述内のマクロ展開  
 https://docs.microsoft.com/ja-jp/cpp/preprocessor/preprocessor-experimental-overview?view=msvc-160  
 
-  - 従来型プリプロセッサでは、マクロ記述内のマクロは自動的に展開される
+  - 従来型プリプロセッサ(/Zc:preprocessor-)では、マクロ記述内のマクロは自動的に展開される
     ```cpp:traditional_macro.cpp 
     #define CAT(a, b) a##b
     #define ECHO(...) __VA_ARGS__
@@ -63,7 +63,7 @@ https://docs.microsoft.com/ja-jp/cpp/preprocessor/preprocessor-experimental-over
       return 0;
     }
     ```
-  - 新型プリプロセッサ(標準準拠モード)では、自動的にマクロ展開されないので、展開用のマクロを一つ追加して、間に噛ませる.
+  - 新型プリプロセッサ(標準準拠モード)(/Zc:preprocessor)では、自動的にマクロ展開されないので、展開用のマクロを一つ追加して、間に噛ませる.
   ```cpp:new_macro.cpp
   #define CAT(a, b) a##b
   #define ECHO(...) __VA_ARGS__
