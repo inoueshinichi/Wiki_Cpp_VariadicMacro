@@ -18,7 +18,7 @@ https://docs.microsoft.com/ja-jp/cpp/preprocessor/preprocessor-experimental-over
   - @GNU `__VA_ARGS__`は自動で展開される.  
           
   
-2. マクロ記述内の `, __VA_ARGS__`における`,`の取扱い 
+2. マクロ記述内の `, __VA_ARGS__`における`,`の取扱い  
 https://tyfkda.github.io/blog/2015/03/04/var-args.html  
 https://stackoverflow.com/questions/5588855/standard-alternative-to-gccs-va-args-trick#11172679  
 https://docs.microsoft.com/ja-jp/cpp/preprocessor/variadic-macros?view=msvc-160  
@@ -44,5 +44,14 @@ https://docs.microsoft.com/ja-jp/cpp/preprocessor/preprocessor-experimental-over
   - `#define LOG(fmt, ...) std::printf(fmt __VA_OPT__(,) __VA_ARGS__);`
   
   
-4.可変長引数マクロの数を数える方法   
+  
+4. MSVCにおけるマクロ記述内のマクロ展開  
+https://docs.microsoft.com/ja-jp/cpp/preprocessor/preprocessor-experimental-overview?view=msvc-160  
+
+  - 従来型プリプロセッサでは、マクロ記述内のマクロは自動的に展開される
+    - "#" 
+  
+
+ 
+5.可変長引数マクロの数を数える方法   
 執筆中  
