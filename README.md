@@ -63,22 +63,22 @@ https://docs.microsoft.com/ja-jp/cpp/preprocessor/preprocessor-experimental-over
       return 0;
     }
     ```
-  - 新型プリプロセッサ(標準準拠モード)(/Zc:preprocessor)では、自動的にマクロ展開されないので、展開用のマクロを一つ追加して、間に噛ませる.
-   ```cpp:new_macro.cpp
-   #define CAT(a, b) a##b
-   #define ECHO(...) __VA_ARGS__
-   #define IMPL1(prefix, value) do_thing_one(prefix, value)
-   #define IMPL2(prefix, value) do_thing_two(prefix, value)
-   #define CALL(macro_name, args) macro_name args // 展開用に間に噛ませるマクロ
-   #define DO_THING_FIXED(a, b) CALL(CAT(IMPL, a), ECHO(("Hello", b)))
-   
-   int main(int, char**)
-   {
-     DO_THING_FIXED(1, "world"); // CALL(IMPL1, ("Hello", "world")) -( IMPL1 ("Hello", "world") )-> do_thing_one("Hello", "world")
-
-     return 0;
-   }
-   ```
+  - 新型プリプロセッサ(標準準拠モード)(/Zc:preprocessor)では、自動的にマクロ展開されないので、展開用のマクロを一つ追加して、間に噛ませる
+    ```cpp:new_macro.cpp
+    #define CAT(a, b) a##b
+    #define ECHO(...) __VA_ARGS__
+    #define IMPL1(prefix, value) do_thing_one(prefix, value)
+    #define IMPL2(prefix, value) do_thing_two(prefix, value)
+    #define CALL(macro_name, args) macro_name args // 展開用に間に噛ませるマクロ
+    #define DO_THING_FIXED(a, b) CALL(CAT(IMPL, a), ECHO(("Hello", b)))
+    
+    int main(int, char**)
+    {
+      DO_THING_FIXED(1, "world"); // CALL(IMPL1, ("Hello", "world")) -( IMPL1 ("Hello", "world") )-> do_thing_one("Hello", "world")
+      
+      return 0;
+    }
+    ```
  
 5.可変長引数マクロの数を数える方法   
 執筆中  
