@@ -1,4 +1,4 @@
-# VariadicMacro
+# Wiki_Cpp_VariadicMacro
 C++における可変引数マクロのテクニック  
 
 1.マクロ記述内における可変長パラメータパック`__VA_ARGS__`の展開有無  
